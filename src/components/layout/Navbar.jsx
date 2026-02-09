@@ -51,20 +51,20 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
-        <div className="backdrop-blur-md bg-zinc-950/40 dark:bg-zinc-950/40 border border-white/10 rounded-2xl px-4 sm:px-6 py-3">
+        <div className="backdrop-blur-md bg-zinc-200/40 dark:bg-zinc-950/40 border border-white/10 rounded-2xl px-4 sm:px-6 py-3 transition-colors">
           <div className="grid grid-cols-3 items-center">
-            <button
+            <a
               onClick={() => scrollToId("home")}
-              className="justify-self-start text-base sm:text-lg font-bold text-white"
+              className="justify-self-start text-blue-400 text-base sm:text-lg font-bold"
             >
-              Marcos Conde
-            </button>
+              MC
+            </a>
 
             {/* CENTRO (desktop) */}
             <ul className="hidden md:flex gap-10 text-sm justify-self-center text-zinc-200">
               <li
                 onClick={() => scrollToId("projects")}
-                className="hover:text-blue-400 cursor-pointer transition"
+                className="hover:text-blue-400 cursor-pointer text-zinc-950  dark:text-white  xtransition"
               >
                 {isPT ? "Projetos" : "Projects"}
               </li>
