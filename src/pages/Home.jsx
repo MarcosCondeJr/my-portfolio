@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <section className="min-h-screen text-white flex items-center">
+    <section id="home" className="min-h-screen text-white flex items-center">
       <div className="max-w-6xl mx-auto px-6">
 
         <span className="text-lg  text-zinc-500 dark:text-zinc-400">

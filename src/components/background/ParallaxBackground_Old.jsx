@@ -35,16 +35,13 @@ export default function ParallaxBackgroundOld() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
     >
-      {/* Fundo base (acompanha dark/light) */}
       <div className="absolute inset-0 bg-white dark:bg-zinc-950" />
 
-      {/* Glow suave para dar profundidade */}
       <div className="absolute inset-0 opacity-70 dark:opacity-60">
         <div className="absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-blue-400/15 blur-3xl" />
         <div className="absolute top-40 left-20 h-[420px] w-[420px] rounded-full bg-blue-400/10 blur-3xl" />
       </div>
 
-      {/* SVG Parallax */}
       <svg
         className="absolute inset-0 h-full w-full"
         viewBox="0 0 1440 900"
@@ -80,7 +77,6 @@ export default function ParallaxBackgroundOld() {
           </g>
         </g>
 
-        {/* BLOBs (camada média) */}
         <g className="pb-layer-2">
           <g className="text-blue-400" opacity="0.10">
             <path
@@ -95,7 +91,6 @@ export default function ParallaxBackgroundOld() {
           </g>
         </g>
 
-        {/* “Montanhas” (camada forte) */}
         <g className="pb-layer-3">
           <g className="text-blue-400" opacity="0.12">
             <path
@@ -112,7 +107,6 @@ export default function ParallaxBackgroundOld() {
           </g>
         </g>
 
-        {/* Partículas (camada mais próxima) */}
         <g className="pb-layer-4 text-blue-400" opacity="0.30">
           {[
             [220, 520, 2],
@@ -126,7 +120,6 @@ export default function ParallaxBackgroundOld() {
         </g>
       </svg>
 
-      {/* Ajustes de cor no dark (mantendo blue-400 como base, mas mais visível) */}
       <div className="absolute inset-0 hidden dark:block pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30" />
       </div>
