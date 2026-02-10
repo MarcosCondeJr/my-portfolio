@@ -20,8 +20,8 @@ export default function Contact() {
         <ContactCard
           icon={Mail}
           title="Email"
-          description="marcosconde@email.com"
-          href="mailto:marcosconde@email.com"
+          description="marcos14conde@hotmail.com"
+          href="mailto:marcos14conde@hotmail.com"
           action="Enviar email"
         />
 
