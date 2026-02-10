@@ -130,22 +130,22 @@ export default function Navbar() {
 
               {/* Links */}
               <a
-                href="https://linkedin.com/in/seu-linkedin"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-blue-400 transition"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} color="#60A5FA" />
-              </a>
-              <a
-                href="https://github.com/seu-github"
+                href="https://github.com/marcoscondejr"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-blue-400 transition"
                 aria-label="GitHub"
               >
                 <Github size={18} color="#60A5FA" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/marcos-conde-481627285/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-blue-400 transition"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} color="#60A5FA" />
               </a>
             </div>
 
