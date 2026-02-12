@@ -37,9 +37,9 @@ export default function ParallaxBackground() {
       <div className="absolute inset-0 bg-white dark:bg-zinc-950" />
 
       <div className="absolute inset-0 opacity-80 dark:opacity-60">
-        <div className="pb-glow-1 absolute -top-48 left-1/2 h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-blue-400/15 blur-3xl" />
-        <div className="pb-glow-2 absolute top-32 left-16 h-[460px] w-[460px] rounded-full bg-blue-400/10 blur-3xl" />
-        <div className="pb-glow-2 absolute bottom-[-120px] right-[-80px] h-[520px] w-[520px] rounded-full bg-blue-400/10 blur-3xl" />
+        <div className="pb-glow-1 absolute -top-48 left-1/2 h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-blue-500/15 blur-3xl" />
+        <div className="pb-glow-2 absolute top-32 left-16 h-[460px] w-[460px] rounded-full bg-blue-500/10 blur-3xl" />
+        <div className="pb-glow-2 absolute bottom-[-120px] right-[-80px] h-[520px] w-[520px] rounded-full bg-blue-500/10 blur-3xl" />
       </div>
 
       <svg
