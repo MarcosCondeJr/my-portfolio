@@ -7,30 +7,24 @@ export default function Home() {
           Olá, eu sou
         </span>
 
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight text-zinc-800 dark:text-white">
-          <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Marcos Conde</span>
-        </h1>
+      <h1
+        className="
+          text-[3rem]
+          lg:text-[5rem]
+          font-bold
+          leading-none
+          tracking-tight
+          text-zinc-900 dark:text-white
+        "
+      >
+        <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+          Marcos Conde
+        </span>
+      </h1>
 
-        <p className="mt-6 text-zinc-600 dark:text-zinc-400 max-w-xl">
-          Desenvolvedor focado em criar aplicações modernas, performáticas e bem estruturadas.
-        </p>
-      
-
-        {/* <div className="mt-8 flex gap-4">
-          <a
-            href="#projects"
-            className="bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent hover:bg-white text-white px-6 py-3 rounded-md font-medium transition"
-          >
-            <span className="dark:text-white text-blue-400">Ver Projetos</span>
-          </a>
-
-          <a
-            href="#contact"
-            className="border border-zinc-700 hover:border-blue-400 px-6 py-3 rounded-md font-medium transition"
-          >
-            <span className="text-blue-400">Contato</span>
-          </a>
-        </div> */}
+        <h2 className="mt-4 text-xl md:text-2xl font-medium text-zinc-600 dark:text-zinc-400">
+          &lt;Desenvolvedor <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"><i>FullStack</i> </span>/&gt;
+        </h2>
       </div>
     </section>
   );
