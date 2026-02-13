@@ -15,7 +15,7 @@ export default function About() {
 
             {/* Imagem */}
             <img
-              src="./src/assets/img-marcos-03.jpeg"
+              src="/img-marcos-03.jpeg"
               alt="Marcos Conde"
               className="relative w-full h-full object-cover rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xl"
             />
