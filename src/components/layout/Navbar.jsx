@@ -2,9 +2,8 @@ import { Github, Languages, Linkedin, Menu, Moon, Sun } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState("dark"); // "dark" | "light"
-  const [lang, setLang] = useState("pt-BR"); // "pt-BR" | "en-US"
+  const [theme, setTheme] = useState("dark");
+  const [lang, setLang] = useState("pt-BR"); 
   const [langOpen, setLangOpen] = useState(false);
 
   const langRef = useRef(null);
@@ -25,18 +24,6 @@ export default function Navbar() {
     else root.classList.remove("dark");
   }, [theme]);
 
-  function scrollToId(id) {
-    setMenuOpen(false);
-    setLangOpen(false);
-
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    const navOffset = 80;
-    const y = el.getBoundingClientRect().top + window.scrollY - navOffset;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  }
-
   function toggleTheme() {
     setTheme((t) => (t === "dark" ? "light" : "dark"));
   }
@@ -52,7 +39,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 w-full z-50">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
         <div className="backdrop-blur-md bg-zinc-200/40 dark:bg-zinc-950/40 border border-white/10 rounded-2xl px-4 sm:px-6 py-3 transition-colors">
-          <div className="grid grid-cols-3 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 items-center">
             <a
               onClick={() => scrollToId("home")}
               className="justify-self-start text-blue-400 text-base sm:text-lg font-bold"
@@ -149,7 +136,7 @@ export default function Navbar() {
               </a>
             </div>
 
-            <div className="md:hidden justify-self-end flex items-center gap-3 text-zinc-200">
+            <div className="md:hidden flex items-center justify-end-safe gap-3 text-zinc-200">
               <button
                 onClick={toggleTheme}
                 className="hover:text-blue-400 transition"
@@ -158,84 +145,26 @@ export default function Navbar() {
                 {theme === "dark" ? <Moon size={18} /> : <Sun size={18} />}
               </button>
 
-              <button
-                onClick={() => setMenuOpen((v) => !v)}
+              <a
+                href="https://github.com/marcoscondejr"
+                target="_blank"
+                rel="noreferrer"
                 className="hover:text-blue-400 transition"
-                aria-label="Abrir menu"
+                aria-label="GitHub"
               >
-                {menuOpen ? <X size={20} /> : <Menu size={20} />}
-              </button>
+                <Github size={18} color="#60A5FA" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/marcos-conde-481627285/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-blue-400 transition"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} color="#60A5FA" />
+              </a>
             </div>
           </div>
-
-          {menuOpen && (
-            <div className="md:hidden mt-4 border-t border-white/10 pt-4 text-zinc-200">
-              <div className="flex flex-col gap-3">
-                <button
-                  onClick={() => scrollToId("projects")}
-                  className="text-left px-2 py-2 rounded-lg hover:bg-white/10 transition"
-                >
-                  {isPT ? "Projetos" : "Projects"}
-                </button>
-                <button
-                  onClick={() => scrollToId("about")}
-                  className="text-left px-2 py-2 rounded-lg hover:bg-white/10 transition"
-                >
-                  {isPT ? "Sobre" : "About"}
-                </button>
-                <button
-                  onClick={() => scrollToId("contact")}
-                  className="text-left px-2 py-2 rounded-lg hover:bg-white/10 transition"
-                >
-                  {isPT ? "Contato" : "Contact"}
-                </button>
-
-                {/* Idioma no mobile */}
-                <div className="mt-2">
-                  <div className="text-xs uppercase tracking-wider text-zinc-400 px-2 mb-2">
-                    {isPT ? "Idioma" : "Language"}
-                  </div>
-                  <div className="flex gap-2 px-2">
-                    <button
-                      onClick={() => setLanguage("pt-BR")}
-                      className={`flex-1 px-3 py-2 rounded-lg border border-white/10 hover:bg-white/10 transition ${
-                        lang === "pt-BR" ? "text-blue-400" : ""
-                      }`}
-                    >
-                      🇧🇷 BR
-                    </button>
-                    <button
-                      onClick={() => setLanguage("en-US")}
-                      className={`flex-1 px-3 py-2 rounded-lg border border-white/10 hover:bg-white/10 transition ${
-                        lang === "en-US" ? "text-blue-400" : ""
-                      }`}
-                    >
-                      🇺🇸 US
-                    </button>
-                  </div>
-                </div>
-
-                <div className="mt-3 flex gap-4 px-2">
-                  <a
-                    href="https://linkedin.com/in/seu-linkedin"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-blue-400 transition"
-                  >
-                    <Linkedin size={18} color="#60A5FA"/>
-                  </a>
-                  <a
-                    href="https://github.com/seu-github"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-blue-400 transition"
-                  >
-                    <Github size={18} color="60A5FA"/>
-                  </a>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </nav>
     </header>
