@@ -21,7 +21,7 @@ export default function ContactCard({
         hover:border-blue-400/50
       "
     >
-      <div className="flex items-start gap-4">
+      <div className="flex items-center gap-4">
         {/* Ícone */}
         <div
           className="
@@ -35,7 +35,7 @@ export default function ContactCard({
         </div>
 
         {/* Conteúdo */}
-        <div>
+        <div className="flex-1 flex flex-col items-center text-center">
           <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
             {title}
           </h3>
