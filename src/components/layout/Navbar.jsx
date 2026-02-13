@@ -64,19 +64,19 @@ export default function Navbar() {
             <ul className="hidden md:flex gap-10 text-sm justify-self-center text-zinc-200">
               <li
                 onClick={() => scrollToId("projects")}
-                className="hover:text-blue-400 cursor-pointer text-zinc-950  dark:text-white  xtransition"
+                className="hover:text-blue-400 cursor-pointer text-zinc-700  dark:text-white  xtransition"
               >
                 {isPT ? "Projetos" : "Projects"}
               </li>
               <li
                 onClick={() => scrollToId("about")}
-                className="hover:text-blue-400 cursor-pointer transition"
+                className="hover:text-blue-400 cursor-pointer text-zinc-700  dark:text-white"
               >
                 {isPT ? "Sobre" : "About"}
               </li>
               <li
                 onClick={() => scrollToId("contact")}
-                className="hover:text-blue-400 cursor-pointer transition"
+                className="hover:text-blue-400 cursor-pointer text-zinc-700  dark:text-white"
               >
                 {isPT ? "Contato" : "Contact"}
               </li>
@@ -88,7 +88,7 @@ export default function Navbar() {
               <div className="relative" ref={langRef}>
                 <button
                   onClick={() => setLangOpen((v) => !v)}
-                  className="flex items-center gap-2 hover:text-blue-400 transition"
+                  className="flex items-center gap-2 dark:text-white text-zinc-700 hover:text-blue-400 transition"
                   aria-label="Mudar idioma"
                 >
                   <Languages size={18} />
@@ -122,7 +122,7 @@ export default function Navbar() {
               {/* Tema */}
               <button
                 onClick={toggleTheme}
-                className="hover:text-blue-400 transition"
+                className="hover:text-blue-400 dark:text-white text-zinc-700 transition"
                 aria-label="Mudar tema"
               >
                 {theme === "dark" ? <Moon size={18} /> : <Sun size={18} />}
