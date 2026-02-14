@@ -10,10 +10,10 @@ import ParallaxBackground from './components/background/ParallaxBackground'
 
 function App() {
   return (
-    <div className=''>
+    <div>
       <ParallaxBackground />
-      <Navbar />
       <main>
+      <Navbar />
         <Home/>
         <About/>
         <Skills/>
