@@ -115,6 +115,7 @@ export default function ProjectCard({ project, onOpen }) {
         type="button"
         onClick={() => onOpen(project)}
         className="
+          group relative overflow-hidden
           inline-flex items-center gap-2
           px-4 py-1
           rounded-xl
@@ -127,7 +128,20 @@ export default function ProjectCard({ project, onOpen }) {
           transition-all duration-300
         "
       >
-        Ver mais
+      <span
+        className="
+          pointer-events-none absolute inset-0
+          before:absolute before:inset-y-0 before:left-0
+          before:w-20
+          before:bg-gradient-to-r before:from-transparent before:via-blue-200/40 before:to-transparent
+          before:-translate-x-[150%]
+          before:skew-x-16
+          before:transition-transform before:duration-800
+          group-hover:before:translate-x-[320%]
+        "
+      />
+
+      <span className="relative">Ver mais</span>
         <span className="transition-transform group-hover:translate-x-1">→</span>
       </button>
 
