@@ -26,11 +26,7 @@ export default function Projects() {
           </span>
         </h2>
 
-        <h3 className="pt-16 flex text-zinc-600 dark:text-white">
-          - Destaques
-        </h3>
-
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        <div className="mt-12 grid gap-6 sm:grid-cols-3">
           {projects.map((p) => (
             <ProjectCard key={p.id} project={p} onOpen={handleOpen} />
           ))}

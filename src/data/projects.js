@@ -4,8 +4,8 @@ export const projects = [
     title: "Pethouse",
     subtitle: "Gestão de pets para tutores",
     description: "Aplicativo",
-    type: "pessoal",
-    stack: ["React", "Node.js", "PostgreSQL", "Tailwind"],
+    type: "profissional",
+    stack: ["React", "NestJs", "PostgreSQL", "Tailwind"],
     highlights: [
       "CRUD completo de produtos e movimentações",
       "Relatórios por período e por categoria",
@@ -14,6 +14,27 @@ export const projects = [
     links: {
       github: "https://github.com/marcoscondejr",
       githubEnabled: false,
+      demo: "",
+      demoEnabled: false,
+    },
+    image: 'capa-projeto-pethouse.png',
+  },
+  {
+    id: "condefinance",
+    title: "CondeFinance",
+    subtitle: "Sistema de gestão financeira",
+    description:
+      "API para assinar documentos (PDF) com validação de certificado e fluxo de assinatura.",
+    type: "pessoal",
+    stack: ["Java", "Spring", "PostgreSQL", "React", "Tailwind"],
+    highlights: [
+      "Assinatura PAdES com PDFBox",
+      "Validação de certificado (PFX/P12)",
+      "Armazenamento em S3/Spaces",
+    ],
+    links: {
+      github: "https://github.com/MarcosCondeJr/conde-finance-api",
+      githubEnabled: true,
       demo: "",
       demoEnabled: false,
     },
@@ -34,7 +55,7 @@ export const projects = [
     ],
     links: {
       github: "",
-      githubEnabled: false, // repo privado / NDA
+      githubEnabled: false,
       demo: "",
       demoEnabled: false,
     },
