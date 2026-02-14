@@ -7,14 +7,15 @@ export default function Home() {
     <section id="home" className="min-h-screen text-white flex items-center">
       <div className="max-w-6xl mx-auto px-6">
 
-        <span className="text-lg  text-zinc-600 dark:text-zinc-400">
+        <span className="text-lg text-zinc-600 dark:text-zinc-300">
           Olá, eu sou
         </span>
 
         <h1
           className="
-            text-[3rem]
-            lg:text-[5rem]
+            text-[4rem]
+            md:text-[3rem]
+            lg:text-[6rem]
             font-bold
             leading-none
             tracking-tight
@@ -26,7 +27,7 @@ export default function Home() {
           </span>
         </h1>
 
-        <h2 className="mt-4 text-xl md:text-2xl font-medium text-zinc-600 dark:text-zinc-400">
+        <h2 className="mt-3 mdtext-xl md:text-2xl font-medium text-zinc-600 dark:text-zinc-300">
           &lt;Desenvolvedor <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"><i>FullStack</i> </span>/&gt;
         </h2>
 
