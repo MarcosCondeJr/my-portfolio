@@ -1,10 +1,10 @@
 export const projects = [
   {
-    id: "stockflow",
-    title: "StockFlow",
-    subtitle: "Controle de estoque para loja de cosméticos",
-    description:
-      "Sistema de controle de estoque com entrada/saída, vendas, histórico e relatórios.",
+    id: "pethouse",
+    title: "Pethouse",
+    subtitle: "Gestão de pets para tutores",
+    description: "Aplicativo",
+    type: "pessoal",
     stack: ["React", "Node.js", "PostgreSQL", "Tailwind"],
     highlights: [
       "CRUD completo de produtos e movimentações",
@@ -13,9 +13,11 @@ export const projects = [
     ],
     links: {
       github: "https://github.com/marcoscondejr",
-      demo: "", // opcional
+      githubEnabled: false,
+      demo: "",
+      demoEnabled: false,
     },
-    image: null, // depois você pode colocar um import ou url
+    image: null,
   },
   {
     id: "signdoc",
@@ -23,6 +25,7 @@ export const projects = [
     subtitle: "API de assinatura digital",
     description:
       "API para assinar documentos (PDF) com validação de certificado e fluxo de assinatura.",
+    type: "profissional",
     stack: ["Java", "Spring", "PostgreSQL"],
     highlights: [
       "Assinatura PAdES com PDFBox",
@@ -30,8 +33,10 @@ export const projects = [
       "Armazenamento em S3/Spaces",
     ],
     links: {
-      github: "https://github.com/marcoscondejr",
+      github: "",
+      githubEnabled: false, // repo privado / NDA
       demo: "",
+      demoEnabled: false,
     },
     image: null,
   },
