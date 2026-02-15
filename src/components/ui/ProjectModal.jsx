@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { X, ExternalLink, Github, Lock, ImageIcon, Linkedin } from "lucide-react";
-import { SiLaravel, SiMongodb, SiNestjs, SiNextdotjs, SiNodedotjs, SiPhp, SiPostgresql, SiReact, SiSpring, SiSpringboot, SiTailwindcss } from "react-icons/si";
+import { SiAmazons3, SiLaravel, SiMongodb, SiNestjs, SiNextdotjs, SiNodedotjs, SiPhp, SiPostgresql, SiReact, SiSpring, SiSpringboot, SiTailwindcss } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
 
 export default function ProjectModal({ project, open, onClose }) {
   useEffect(() => {
@@ -30,6 +31,8 @@ export default function ProjectModal({ project, open, onClose }) {
     NestJS: <SiNestjs className="text-red-500" />,
     Next: <SiNextdotjs className="text-zinc-200" />,
     NestJs: <SiNestjs className="text-red-500" />,
+    Java: <FaJava className="text-red-800" />,
+    "Amazon S3": <SiAmazons3 className="text-red-500" />,
   };
 
   return (
