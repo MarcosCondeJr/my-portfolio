@@ -13,16 +13,16 @@ import {
 } from "react-icons/si";
 
 const techIcons = {
-  Java: <FaJava />,
-  React: <SiReact/>,
-  "Node.js": <SiNodedotjs />,
-  PostgreSQL: <SiPostgresql/>,
-  Tailwind: <SiTailwindcss/>,
-  Spring: <SiSpring />,
-  Laravel: <SiLaravel />,
-  PHP: <SiPhp  />,
-  MongoDB: <SiMongodb  />,
-  NestJs: <SiNestjs />
+  Java: <FaJava className="text-white" />,
+  React: <SiReact className="text-white" />,
+  "Node.js": <SiNodedotjs className="text-white" />,
+  PostgreSQL: <SiPostgresql className="text-white" />,
+  Tailwind: <SiTailwindcss className="text-white" />,
+  Spring: <SiSpring className="text-white"  />,
+  Laravel: <SiLaravel className="text-white"  />,
+  PHP: <SiPhp className="text-white"  />,
+  MongoDB: <SiMongodb className="text-white"   />,
+  NestJs: <SiNestjs className="text-white"  />
 };
 
 export default function ProjectCard({ project, onOpen }) {

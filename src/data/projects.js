@@ -43,9 +43,9 @@ export const projects = [
   {
     id: "signdoc",
     title: "SignDoc API",
-    subtitle: "API de assinatura digital",
+    subtitle: "Assinatura digital de documentos",
     description:
-      "API para assinar documentos (PDF) com validação de certificado e fluxo de assinatura.",
+      "API para assinar documentos com validação de certificado e fluxo de assinatura.",
     type: "profissional",
     stack: ["Java", "Spring", "PostgreSQL"],
     highlights: [
