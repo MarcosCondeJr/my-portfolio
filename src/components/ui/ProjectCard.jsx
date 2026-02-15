@@ -22,7 +22,8 @@ const techIcons = {
   Laravel: <SiLaravel className="text-white"  />,
   PHP: <SiPhp className="text-white"  />,
   MongoDB: <SiMongodb className="text-white"   />,
-  NestJs: <SiNestjs className="text-white"  />
+  NestJs: <SiNestjs className="text-white"  />,
+  "React Native": <SiReact className="text-white" />,
 };
 
 export default function ProjectCard({ project, onOpen }) {
