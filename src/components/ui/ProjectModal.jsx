@@ -32,7 +32,7 @@ export default function ProjectModal({ project, open, onClose }) {
     Next: <SiNextdotjs className="text-zinc-200" />,
     NestJs: <SiNestjs className="text-red-500" />,
     Java: <FaJava className="text-red-800" />,
-    "Amazon S3": <SiAmazons3 className="text-red-500" />,
+    "Amazon S3": <SiAmazons3 className="text-green-500" />,
   };
 
   return (

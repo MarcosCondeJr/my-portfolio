@@ -9,7 +9,8 @@ import {
   SiLaravel,
   SiPhp,
   SiMongodb,
-  SiNestjs
+  SiNestjs,
+  SiAmazons3
 } from "react-icons/si";
 
 const techIcons = {
@@ -24,6 +25,7 @@ const techIcons = {
   MongoDB: <SiMongodb className="text-white"   />,
   NestJs: <SiNestjs className="text-white"  />,
   "React Native": <SiReact className="text-white" />,
+  "Amazon S3": <SiAmazons3 className="text-white" />,
 };
 
 export default function ProjectCard({ project, onOpen }) {
