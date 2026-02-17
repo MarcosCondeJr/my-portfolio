@@ -13,16 +13,16 @@ import {
 } from "react-icons/si";
 
 export const techIcons = {
-  Java: <FaJava className="text-white" />,
-  React: <SiReact className="text-white" />,
-  "Node.js": <SiNodedotjs className="text-white" />,
-  PostgreSQL: <SiPostgresql className="text-white" />,
-  Tailwind: <SiTailwindcss className="text-white" />,
-  Spring: <SiSpring className="text-white"  />,
-  Laravel: <SiLaravel className="text-white"  />,
-  PHP: <SiPhp className="text-white"  />,
-  MongoDB: <SiMongodb className="text-white"   />,
-  NestJs: <SiNestjs className="text-white"  />,
-  "React Native": <SiReact className="text-white" />,
-  "Amazon S3": <SiAmazons3 className="text-white" />,
+  Java: <FaJava className="text-blue-400" />,
+  React: <SiReact className="text-blue-400" />,
+  "Node.js": <SiNodedotjs className="text-blue-400" />,
+  PostgreSQL: <SiPostgresql className="text-blue-400" />,
+  Tailwind: <SiTailwindcss className="text-blue-400" />,
+  Spring: <SiSpring className="text-blue-400"  />,
+  Laravel: <SiLaravel className="text-blue-400"  />,
+  PHP: <SiPhp className="text-blue-400"  />,
+  MongoDB: <SiMongodb className="text-blue-400"   />,
+  NestJs: <SiNestjs className="text-blue-400"  />,
+  "React Native": <SiReact className="text-blue-400" />,
+  "Amazon S3": <SiAmazons3 className="text-blue-400" />,
 };
