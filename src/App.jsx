@@ -7,6 +7,7 @@ import Projects from './pages/Projects'
 import Footer from './components/layout/Footer'
 import Contact from './pages/Contact'
 import ParallaxBackground from './components/background/ParallaxBackground'
+import Experience from './pages/Experience'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <About/>
         <Skills/>
         <Projects/>
+        <Experience/>
         <Contact/>
         <Footer/>
       </main>
