@@ -4,9 +4,9 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-black/10 dark:border-white/10">
-      <div className="max-w-8xl mx-auto px-1 sm:px-1 py-6">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500 dark:text-zinc-400">
+    <footer className="max-w-11/12 mx-auto border-t border-black/10  dark:border-white/10">
+      <div className="px-1 sm:px-1 py-2">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-zinc-500 dark:text-zinc-400">
           
           <p className="text-center sm:text-left">
             © {year} Marcos Conde. Todos os direitos reservados.

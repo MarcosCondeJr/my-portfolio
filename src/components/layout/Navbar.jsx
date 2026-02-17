@@ -1,5 +1,8 @@
-import { Github, Languages, Linkedin, Moon, Sun } from "lucide-react";
+import { Github, Linkedin, Moon, Sun } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { scrollToId } from "../../utils/scrollToId";
+import SocialPill from "../ui/SocialPill";
+import Magnetic from "../ui/Magnetic";
 
 export default function Navbar() {
   const [theme, setTheme] = useState("dark");
@@ -7,17 +10,6 @@ export default function Navbar() {
   const [langOpen, setLangOpen] = useState(false);
 
   const langRef = useRef(null);
-
-  function scrollToId(id) {
-    setLangOpen(false);
-
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    const navOffset = 80;
-    const y = el.getBoundingClientRect().top + window.scrollY - navOffset;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  }
 
   useEffect(() => {
     const root = document.documentElement;
@@ -38,32 +30,60 @@ export default function Navbar() {
     "backdrop-blur-md bg-white/60 dark:bg-zinc-950/40 border border-black/10 dark:border-white/10";
 
   const iconBtn =
-    "p-2 rounded-xl text-zinc-700 dark:text-white hover:text-blue-400 transition";
+    "p-2 rounded-xl text-zinc-700 dark:text-white hover:text-blue-400 cursor-pointer transition";
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 px-2 pt-2">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
-        {/* <div className="backdrop-blur-md bg-zinc-200/40 dark:bg-zinc-950/40 border border-white/10 rounded-2xl px-4 sm:px-6 py-3 transition-colors"> */}
         <div className="grid grid-cols-2 items-center">
-          <button
-            onClick={() => scrollToId("home")}
-            className={`
-              ${glass}
-              justify-self-start
-              h-11 w-11
-              rounded-full
-              flex items-center justify-center
-              font-extrabold
-              text-blue-400
-              shadow-sm
-              hover:shadow-md
-              transition
-            `}
-            aria-label="Ir para Home"
-            type="button"
-          >
-            MC
-          </button>
+          <Magnetic strength={30}>
+            <button
+              onClick={() => scrollToId("home")}
+              className={`
+                group
+                ${glass}
+                justify-self-start
+                flex items-center
+                rounded-2xl
+                overflow-hidden
+                px-3 py-1
+                transition-all duration-300
+                hover:shadow-md
+              `}
+              aria-label="Ir para Home"
+              type="button"
+            >
+              {/* MC */}
+              <span
+                className="
+                  flex items-center justify-center
+                  h-8 w-8
+                  font-extrabold
+                  text-blue-400
+                "
+              >
+                MC
+              </span>
+
+              <span
+                className="
+                  ml-0
+                  max-w-0
+                  opacity-0
+                  overflow-hidden
+                  whitespace-nowrap
+                  text-sm font-semibold
+                  text-zinc-800 dark:text-zinc-200
+                  transition-all duration-300
+                  group-hover:max-w-[160px]
+                  group-hover:opacity-100
+                  group-hover:ml-2
+                "
+              >
+                Marcos Conde
+              </span>
+            </button>
+          </Magnetic>
 
           {/* DIREITA */}
           <div className="justify-self-end">
@@ -108,25 +128,17 @@ export default function Navbar() {
               {/* Divisor */}
               <div className="h-6 w-px bg-black/10 dark:bg-white/10 mx-1" />
 
-              <a
+              <SocialPill
                 href="https://github.com/marcoscondejr"
-                target="_blank"
-                rel="noreferrer"
-                className={`${iconBtn} flex`}
-                aria-label="GitHub"
-              >
-                <Github size={18} className="text-blue-400" />
-              </a>
+                label="GitHub"
+                Icon={Github}
+              />
 
-              <a
+              <SocialPill
                 href="https://www.linkedin.com/in/marcos-conde-481627285/"
-                target="_blank"
-                rel="noreferrer"
-                className={`${iconBtn} flex`}
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} className="text-blue-400" />
-              </a>
+                label="LinkedIn"
+                Icon={Linkedin}
+              />
             </div>
 
           <div className={`${glass} md:hidden flex items-center gap-1 rounded-2xl px-2 py-1 shadow-sm`}>
@@ -141,25 +153,17 @@ export default function Navbar() {
 
               <div className="h-6 w-px bg-black/10 dark:bg-white/10 mx-1" />
 
-              <a
+              <SocialPill
                 href="https://github.com/marcoscondejr"
-                target="_blank"
-                rel="noreferrer"
-                className={`${iconBtn} flex`}
-                aria-label="GitHub"
-              >
-                <Github size={18} className="text-blue-400" />
-              </a>
+                label="GitHub"
+                Icon={Github}
+              />
 
-              <a
+              <SocialPill
                 href="https://www.linkedin.com/in/marcos-conde-481627285/"
-                target="_blank"
-                rel="noreferrer"
-                className={`${iconBtn} flex`}
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} className="text-blue-400" />
-              </a>
+                label="LinkedIn"
+                Icon={Linkedin}
+              />
             </div>
           </div>
         </div>

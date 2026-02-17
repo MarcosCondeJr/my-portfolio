@@ -19,18 +19,14 @@ export default function Projects() {
 
   return (
     <section id="projects" className="min-h-screen flex items-center">
-      <div className="max-w-6xl mx-auto px-6 py-24 w-full">
+      <div className="max-w-6xl mx-auto px-6 py-24 w-full felx flex-col">
         <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
           <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             Projetos
           </span>
         </h2>
 
-        <p className="mt-4 text-zinc-600 dark:text-zinc-400 max-w-2xl">
-          Alguns projetos que eu construí para praticar, aprender e resolver problemas reais.
-        </p>
-
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        <div className="mt-12 grid gap-6 sm:grid-cols-3">
           {projects.map((p) => (
             <ProjectCard key={p.id} project={p} onOpen={handleOpen} />
           ))}
