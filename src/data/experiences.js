@@ -6,7 +6,7 @@ export const experiences = [
     period: "2025 - Atual",
     type: "Profissional",
     description:
-      "Desenvolvimento e manutenção de APIs REST utilizando Java e Spring Boot, com foco em segurança, performance e organização de código.",
+      "Atuação no desenvolvimento do sistema web em PHP, com criação de novas funcionalidades e módulos. Desenvolvimento de APIs e microserviços em Java com Spring Boot, Colaboraboração com melhorias na arquitetura, padronização e boas práticas do projeto.",
     stack: ["PHP", "Java", "Spring", "PostgreSQL"],
   },
   {
@@ -16,7 +16,7 @@ export const experiences = [
     period: "2024 - 2025",
     type: "estagio",
     description:
-      "Desenvolvimento de aplicações web completas utilizando PHP e bancos relacionais.",
+      "Manutenção e suporte em sistema web PHP, correção de bugs, testes e apoio no processo de desenvolvimento.",
     stack: ["PHP", "PostgreSQL"],
   },
 ];
