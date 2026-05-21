@@ -123,7 +123,7 @@ export default function Experience() {
                   <div
                     className={`md:w-1/2 ${
                       isLeft
-                        ? "md:pr-12 text-right"
+                        ? "md:pr-12 text-left md:text-right"
                         : "md:pl-12 md:ml-auto text-left"
                     }`}
                   >
@@ -157,7 +157,7 @@ export default function Experience() {
 
                       <div
                         className={`mt-4 flex flex-wrap gap-2 ${
-                          isLeft ? "justify-end" : "justify-start"
+                          isLeft ? "justify-start md:justify-end" : "justify-start"
                         }`}
                       >
                         {exp.stack.map((tech) => (
