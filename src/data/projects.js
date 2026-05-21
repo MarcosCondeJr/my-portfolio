@@ -46,10 +46,10 @@ description:
     links: {
       github: "https://github.com/MarcosCondeJr/conde-finance-api",
       githubEnabled: true,
-      demo: "",
-      demoEnabled: false,
+      demo: "https://condefinance.marcoscondejr.com.br",
+      demoEnabled: true,
     },
-    image: null,
+    image: 'LOGIN-CONDE-FINANCE.png',
     team: []
   },
   {
