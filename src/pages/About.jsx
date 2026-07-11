@@ -1,7 +1,6 @@
 export default function About() {
   return (
     <section id="about" className="min-h-screen flex flex-col justify-center">
-
       <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-16">
         <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
           Sobre Mim
@@ -9,9 +8,7 @@ export default function About() {
       </h2>
 
       <div className="w-full px-8 lg:px-20">
-
         <div className="grid md:grid-cols-[auto_1fr] gap-10 items-center">
-
           <div className="relative group">
             <div
               className="absolute -inset-3 rounded-[2.5rem] bg-blue-400/15 blur-2xl
@@ -50,31 +47,35 @@ export default function About() {
           </div>
 
           {/* CARD */}
-          <div className="max-w-2xl
+          <div
+            className="max-w-2xl
                           rounded-3xl p-13
                           bg-white/50 dark:bg-zinc-950/30 backdrop-blur-xl
                           border border-zinc-200/60 dark:border-zinc-800/60
-                          shadow-2xl">
-
+                          shadow-2xl"
+          >
             <div className="w-16 h-1 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 mb-6" />
 
             <p className="mt-6 text-zinc-700 dark:text-zinc-300 leading-relaxed">
-              Desenvolvedor Full Stack formado em Desenvolvimento de Sistemas pelo SENAI
-              e graduando em Engenharia de Software. Atuo profissionalmente em sistemas
-              web de grande escala utilizando <span className="text-blue-600 dark:text-blue-400 font-semibold">PHP</span>,
-              participando da criação e evolução de módulos e funcionalidades, contribuindo
-              para a melhoria contínua da arquitetura, organização e sustentabilidade do código.
+              Desenvolvedor Full Stack formado em Desenvolvimento de Sistemas
+              pelo SENAI e graduando em Engenharia de Software na UCSal. Atuo
+              profissionalmente em sistemas web de grande escala utilizando{" "}
+              <span className="text-blue-600 dark:text-blue-400 font-semibold">
+                PHP
+              </span>
+              , participando da criação e evolução de módulos e funcionalidades,
+              contribuindo para a melhoria contínua da arquitetura, organização
+              e sustentabilidade do código.
             </p>
 
             <p className="mt-4 text-zinc-700 dark:text-zinc-300 leading-relaxed">
               Também desenvolvo projetos com{" "}
               <span className="text-blue-600 dark:text-blue-400 font-semibold">
                 Java e Spring Boot
-              </span>,
-              aprofundando conhecimentos em arquitetura, padrões e segurança.
+              </span>
+              , aprofundando conhecimentos em arquitetura, padrões e segurança.
             </p>
           </div>
-
         </div>
       </div>
     </section>
