@@ -3,17 +3,24 @@ import { experiences } from "../data/experiences";
 import { techIcons } from "../data/techIcons";
 import Section from "../components/layout/Section";
 import Reveal from "../components/motion/Reveal";
+import { shouldAnimate } from "../motion/motionTokens";
 
 export default function Experience() {
   const wrapRef = useRef(null);
   const itemRefs = useRef([]);
-  const [progress, setProgress] = useState(0);
-  const [activeItems, setActiveItems] = useState([]);
+  // Com movimento reduzido, o estado ja nasce no valor final: a linha
+  // inteira e todos os pontos acesos. Mesmo resultado visual, sem animar.
+  const [progress, setProgress] = useState(() => (shouldAnimate() ? 0 : 1));
+  const [activeItems, setActiveItems] = useState(() =>
+    shouldAnimate() ? [] : experiences.map((_, i) => i)
+  );
 
   // Linha preenchendo (scroll)
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
+
+    if (!shouldAnimate()) return;
 
     let raf = 0;
 
@@ -47,6 +54,8 @@ export default function Experience() {
 
   // Pontos "acendem" ao entrar na viewport
   useEffect(() => {
+    if (!shouldAnimate()) return;
+
     const observers = [];
 
     itemRefs.current.forEach((el, index) => {
