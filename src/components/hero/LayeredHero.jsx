@@ -45,11 +45,13 @@ export default function LayeredHero({ photo, alt, cutout = false }) {
         )}
       </div>
 
-      <p aria-hidden="true" className={`relative z-20 ${tipo}`}>
-        <span className="block overflow-hidden">
-          <span className="block">Conde</span>
-        </span>
-      </p>
+      <MaskedHeading
+        as="p"
+        lines={["Conde"]}
+        delay={0.12}
+        aria-hidden="true"
+        className={`relative z-20 ${tipo}`}
+      />
     </div>
   );
 }
