@@ -44,3 +44,48 @@ body {
   background: #F5F1E8;
   color: #16150F;
 }
+
+/* Cursor customizado. A classe cursor-custom e adicionada ao <html> pelo
+   componente Cursor DEPOIS que ele monta — nunca daqui. Se o componente
+   nao rodar, o cursor do sistema continua no lugar. */
+html.cursor-custom,
+html.cursor-custom * {
+  cursor: none;
+}
+
+/* Excecao: campo de texto mantem o cursor de texto. Nao ha nenhum no site
+   hoje, mas se aparecer um formulario a regra ja esta certa. */
+html.cursor-custom input,
+html.cursor-custom textarea {
+  cursor: auto;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* acima do ProjectModal, que e z-[999] */
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border-radius: 9999px;
+  background: #fff;
+  /* A inversao e o que mantem o cursor legivel sobre creme, sobre escuro,
+     sobre a faixa azul e sobre a foto — sem nenhuma regra de cor por secao. */
+  mix-blend-mode: difference;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+  transition: width 0.28s ease, height 0.28s ease, margin 0.28s ease,
+    opacity 0.2s ease;
+}
+
+.cursor-dot.is-visible {
+  opacity: 1;
+}
+
+.cursor-dot.is-over {
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+}

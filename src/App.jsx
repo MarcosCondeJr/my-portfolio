@@ -7,6 +7,7 @@ import Skills from './pages/Skills'
 import Contact from './pages/Contact'
 import Footer from './components/layout/Footer'
 import Marquee from './components/ui/Marquee'
+import Cursor from './components/ui/Cursor'
 // import BassBand from './components/sections/BassBand'
 
 const FAIXA = [
@@ -18,6 +19,7 @@ const FAIXA = [
 function App() {
   return (
     <>
+      <Cursor />
       <Navbar />
       <main>
         <Home />
