@@ -45,6 +45,47 @@ body {
   color: #16150F;
 }
 
+/* Barra de rolagem: so o indicador, em azul, sobre trilho transparente.
+   Sem setas.
+
+   A cor e o #1B26FF fixo, nao var(--accent): a barra e uma so para a
+   pagina inteira, entao ela nao pode depender do data-tone de nenhuma
+   secao. Azul tem contraste tanto sobre o creme quanto sobre o escuro; o
+   unico lugar onde ele some e em cima da faixa azul, que tem 40px de
+   altura. */
+html {
+  /* Firefox: so aceita estas duas propriedades. Nada de cantos, setas ou
+     hover — la a barra degrada para "fina, azul sobre transparente". */
+  scrollbar-width: thin;
+  scrollbar-color: #1B26FF transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1B26FF;
+  /* Sem raio de canto, como o resto do site. Para arredondar, basta
+     trocar por border-radius: 99px. */
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4A53FF;
+}
+
+/* As setas de cima e de baixo. */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
 /* Cursor customizado. A classe cursor-custom e adicionada ao <html> pelo
    componente Cursor DEPOIS que ele monta — nunca daqui. Se o componente
    nao rodar, o cursor do sistema continua no lugar. */
