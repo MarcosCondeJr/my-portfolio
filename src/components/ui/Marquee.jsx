@@ -1,16 +1,46 @@
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { shouldAnimate } from "../../motion/motionTokens";
+import { repeticoesNecessarias } from "../../utils/marquee";
 
 export default function Marquee({ items, speed = 0.5 }) {
   const trilhaRef = useRef(null);
-  const texto = items.join("  ·  ");
+  const larguraCopiaRef = useRef(0);
+  const [repeticoes, setRepeticoes] = useState(2);
+  const texto = items.join("  ·  ") + "  ·  ";
 
+  // Mede uma copia e decide quantas cabem. Roda depois das fontes
+  // carregarem e em toda mudanca de tamanho da janela: medir uma vez so, no
+  // primeiro quadro, dava 415px onde o real era 440 — a fonte ainda nao
+  // tinha chegado.
   useLayoutEffect(() => {
+    const trilha = trilhaRef.current;
+    if (!trilha) return;
+
+    let vivo = true;
+
+    const medir = () => {
+      if (!vivo || !trilha.children[0]) return;
+      const largura = trilha.children[0].offsetWidth;
+      if (!largura) return;
+      larguraCopiaRef.current = largura;
+      setRepeticoes(repeticoesNecessarias(largura, window.innerWidth));
+    };
+
+    medir();
+    window.addEventListener("resize", medir);
+    if (document.fonts?.ready) document.fonts.ready.then(medir);
+
+    return () => {
+      vivo = false;
+      window.removeEventListener("resize", medir);
+    };
+  }, [texto]);
+
+  useEffect(() => {
     const trilha = trilhaRef.current;
     if (!trilha || !shouldAnimate()) return;
 
     let deslocamento = 0;
-    let metade = 0;
     let raf = 0;
     let velocidade = 0;
     let ultimoY = window.scrollY;
@@ -18,8 +48,7 @@ export default function Marquee({ items, speed = 0.5 }) {
     // A velocidade do scroll vem de um listener proprio, nao do
     // ScrollTrigger: getVelocity e metodo de instancia, nao estatico
     // (ScrollTrigger.js:1616), e chamar ScrollTrigger.getVelocity()
-    // lancava TypeError no primeiro quadro — antes do requestAnimationFrame
-    // do final — matando o laco e deixando a faixa parada.
+    // lancava TypeError no primeiro quadro, matando o laco.
     const aoRolar = () => {
       const y = window.scrollY;
       velocidade = y - ultimoY;
@@ -28,18 +57,20 @@ export default function Marquee({ items, speed = 0.5 }) {
     window.addEventListener("scroll", aoRolar, { passive: true });
 
     const passo = () => {
-      if (!metade) metade = trilha.scrollWidth / 2 || 1;
+      // O laco reinicia a cada UMA copia, independente de quantas existam.
+      const passoDoLaco = larguraCopiaRef.current;
 
-      // Limitado para nao dar solavanco, e decaindo a cada quadro para a
-      // faixa voltar a velocidade base quando o scroll para.
-      const impulso = Math.max(-6, Math.min(6, velocidade * 0.12));
-      velocidade *= 0.9;
+      if (passoDoLaco > 0) {
+        const impulso = Math.max(-6, Math.min(6, velocidade * 0.12));
+        velocidade *= 0.9;
 
-      deslocamento -= speed + impulso;
-      if (deslocamento <= -metade) deslocamento += metade;
-      if (deslocamento > 0) deslocamento -= metade;
+        deslocamento -= speed + impulso;
+        if (deslocamento <= -passoDoLaco) deslocamento += passoDoLaco;
+        if (deslocamento > 0) deslocamento -= passoDoLaco;
 
-      trilha.style.transform = `translateX(${deslocamento}px)`;
+        trilha.style.transform = `translateX(${deslocamento}px)`;
+      }
+
       raf = requestAnimationFrame(passo);
     };
 
@@ -57,15 +88,18 @@ export default function Marquee({ items, speed = 0.5 }) {
       aria-hidden="true"
       className="overflow-hidden bg-accent py-3"
     >
-      <div ref={trilhaRef} className="flex w-max whitespace-nowrap will-change-transform">
-        <span className="pr-8 font-mono text-[10px] uppercase tracking-[0.2em] text-white">
-          {texto}
-          {"  ·  "}
-        </span>
-        <span className="pr-8 font-mono text-[10px] uppercase tracking-[0.2em] text-white">
-          {texto}
-          {"  ·  "}
-        </span>
+      <div
+        ref={trilhaRef}
+        className="flex w-max whitespace-nowrap will-change-transform"
+      >
+        {Array.from({ length: repeticoes }, (_, i) => (
+          <span
+            key={i}
+            className="pr-8 font-mono text-[10px] uppercase tracking-[0.2em] text-white"
+          >
+            {texto}
+          </span>
+        ))}
       </div>
     </div>
   );
