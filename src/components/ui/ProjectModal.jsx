@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { X, ExternalLink, Github, Lock, ImageIcon, Linkedin } from "lucide-react";
-import { SiAmazons3, SiLaravel, SiMongodb, SiNestjs, SiNextdotjs, SiNodedotjs, SiPhp, SiPostgresql, SiReact, SiSpring, SiSpringboot, SiTailwindcss } from "react-icons/si";
-import { FaJava } from "react-icons/fa";
+import { techIcons } from "../../data/techIcons";
 
 export default function ProjectModal({ project, open, onClose }) {
   useEffect(() => {
@@ -16,24 +15,6 @@ export default function ProjectModal({ project, open, onClose }) {
 
   const githubEnabled = project.links?.githubEnabled ?? !!project.links?.github;
   const demoEnabled = project.links?.demoEnabled ?? !!project.links?.demo;
-
-  const techIcons = {
-    React: <SiReact className="text-sky-400" />,
-    "Node.js": <SiNodedotjs className="text-green-500" />,
-    PostgreSQL: <SiPostgresql className="text-blue-500" />,
-    Tailwind: <SiTailwindcss className="text-cyan-400" />,
-    "Spring": <SiSpring className="text-green-600" />,
-    "React Native": <SiReact className="text-sky-400" />,
-    "Spring Boot": <SiSpringboot className="text-green-600" />,
-    Laravel: <SiLaravel className="text-red-500" />,
-    PHP: <SiPhp className="text-indigo-400" />,
-    MongoDB: <SiMongodb className="text-green-500" />,
-    NestJS: <SiNestjs className="text-red-500" />,
-    Next: <SiNextdotjs className="text-zinc-200" />,
-    NestJs: <SiNestjs className="text-red-500" />,
-    Java: <FaJava className="text-red-800" />,
-    "Amazon S3": <SiAmazons3 className="text-green-500" />,
-  };
 
   return (
     <div className="fixed inset-0 z-[999] flex items-center justify-center">

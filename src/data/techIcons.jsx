@@ -9,20 +9,31 @@ import {
   SiPhp,
   SiMongodb,
   SiNestjs,
-  SiAmazons3
+  SiAmazons3,
+  SiGit,
+  SiGithub,
 } from "react-icons/si";
 
+// Fonte unica de icones de tecnologia. ProjectCard, ProjectModal, Skills e
+// Experience importam daqui. As chaves precisam bater exatamente com as
+// strings usadas em projects.js, experiences.js e skills.js — o teste em
+// __tests__/techIcons.test.js garante isso nos dois sentidos.
+//
+// Sem cor fixa: os icones herdam currentColor para funcionar tanto nas
+// secoes claras quanto nas escuras.
 export const techIcons = {
-  Java: <FaJava className="text-blue-400" />,
-  React: <SiReact className="text-blue-400" />,
-  "Node.js": <SiNodedotjs className="text-blue-400" />,
-  PostgreSQL: <SiPostgresql className="text-blue-400" />,
-  Tailwind: <SiTailwindcss className="text-blue-400" />,
-  Spring: <SiSpring className="text-blue-400"  />,
-  Laravel: <SiLaravel className="text-blue-400"  />,
-  PHP: <SiPhp className="text-blue-400"  />,
-  MongoDB: <SiMongodb className="text-blue-400"   />,
-  NestJs: <SiNestjs className="text-blue-400"  />,
-  "React Native": <SiReact className="text-blue-400" />,
-  "Amazon S3": <SiAmazons3 className="text-blue-400" />,
+  Java: <FaJava />,
+  Spring: <SiSpring />,
+  PHP: <SiPhp />,
+  Laravel: <SiLaravel />,
+  "Node.js": <SiNodedotjs />,
+  NestJs: <SiNestjs />,
+  React: <SiReact />,
+  "React Native": <SiReact />,
+  Tailwind: <SiTailwindcss />,
+  PostgreSQL: <SiPostgresql />,
+  MongoDB: <SiMongodb />,
+  "Amazon S3": <SiAmazons3 />,
+  Git: <SiGit />,
+  GitHub: <SiGithub />,
 };
