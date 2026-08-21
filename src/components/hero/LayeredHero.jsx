@@ -17,7 +17,15 @@ import MaskedHeading from "../motion/MaskedHeading";
 // div da foto herdaria os 16px do body e a sobreposicao seria de 3px em
 // vez de ~45px — o efeito simplesmente nao apareceria.
 export default function LayeredHero({ photo, alt, cutout = false }) {
-  const tipo = "font-display uppercase leading-[0.82] tracking-[0.01em]";
+  // A entrelinha decide o respiro entre MARCOS e CONDE. As maiusculas da
+  // Anton ocupam ~73% do tamanho da fonte, entao leading-[0.9] deixa uns
+  // 17% de folga. O valor original era 0.82, escolhido para a composicao
+  // em camadas — la as palavras precisavam abracar a foto. Sem foto, elas
+  // so ficavam grudadas.
+  //
+  // Se o modo cutout voltar, revisar junto: as margens negativas da
+  // sobreposicao foram calibradas contra 0.82.
+  const tipo = "font-display uppercase leading-[0.9] tracking-[0.01em]";
   const temFoto = Boolean(photo);
 
   return (
