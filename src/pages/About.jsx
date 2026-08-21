@@ -33,9 +33,9 @@ export default function About() {
 
         <Reveal delay={0.15}>
           <img
-            src="/img-marcos-03.jpeg"
-            alt="A mesa de trabalho de Marcos Conde"
-            className="w-full object-cover"
+            src="/imagem-work.jpeg"
+            alt="A mesa de trabalho de Marcos Conde: dois monitores com código, teclado iluminado e luz azul ao fundo"
+            className="aspect-[3/4] w-full object-cover"
           />
         </Reveal>
       </div>

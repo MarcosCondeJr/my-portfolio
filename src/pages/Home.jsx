@@ -21,11 +21,13 @@ export default function Home() {
         </Reveal>
 
         <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-          <LayeredHero
-            photo="/img-marcos-03.jpeg"
-            alt="Marcos Conde"
-            cutout={false}
-          />
+          {/*
+            Hero so com tipografia por enquanto. As fotos recortadas nao
+            convenceram e a decisao ficou em aberto. Para voltar ao efeito
+            de camada do ref 1, e so passar as duas props:
+              photo="/marcos-fundo-removido1.png" cutout={true}
+          */}
+          <LayeredHero />
 
           <div className="max-w-[30ch] lg:pb-6">
             <Reveal
