@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Superpowers brainstorm sessions
+.superpowers/
+
+# Refs de inspiracao (trabalho de terceiros, nao versionar)
+docs/refs/
