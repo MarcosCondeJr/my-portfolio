@@ -2,7 +2,11 @@ import { useRef, useState } from "react";
 import Section from "../layout/Section";
 import Reveal from "../motion/Reveal";
 import { shouldAnimate } from "../../motion/motionTokens";
-import { opacidadesDaTroca, useScrollProgress } from "../../motion/useScrollProgress";
+import {
+  escalasDaTroca,
+  opacidadesDaTroca,
+  useScrollProgress,
+} from "../../motion/useScrollProgress";
 
 // Quem gruda e o CSS sticky, nao o JavaScript: o scroll do visitante nunca
 // e interceptado nem cancelado. Isso importa porque scroll sequestrado por
@@ -79,6 +83,7 @@ export default function AboutScroll({ paradas }) {
   }
 
   const opacidades = opacidadesDaTroca(progresso, paradas.length);
+  const escalas = escalasDaTroca(progresso, paradas.length);
 
   return (
     <section
@@ -102,6 +107,9 @@ export default function AboutScroll({ paradas }) {
                 className="absolute inset-0 flex items-center"
                 style={{
                   opacity: opacidades[i],
+                  transform: `scale(${escalas[i]})`,
+                  transformOrigin: "center center",
+                  willChange: "transform, opacity",
                   // A parada apagada nao pode roubar clique nem hover da
                   // que esta visivel.
                   pointerEvents: opacidades[i] > 0.5 ? "auto" : "none",
