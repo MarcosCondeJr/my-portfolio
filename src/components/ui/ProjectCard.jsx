@@ -2,148 +2,83 @@ import { Github } from "lucide-react";
 import { techIcons } from "../../data/techIcons";
 
 export default function ProjectCard({ project, onOpen }) {
-
   const githubEnabled = project.links?.githubEnabled ?? !!project.links?.github;
   const githubUrl = project.links?.github;
+  const tipo = project.type === "profissional" ? "Profissional" : "Pessoal";
 
   return (
-    <div
+    <article
       onClick={() => onOpen(project)}
-      className="
-        group cursor-pointer overflow-hidden
-        rounded-2xl border border-black/10 dark:border-white/10
-        bg-white dark:bg-zinc-950
-        transition-all duration-300
-        hover:-translate-y-1 hover:shadow-2xl
-      "
+      className="group flex h-full cursor-pointer flex-col border border-line bg-surface transition-colors hover:border-accent"
     >
-      {/* IMAGEM / HERO */}
-      <div className="relative h-52 overflow-hidden">
-        <div
-          className="
-            absolute top-4 left-4 z-1
-            inline-flex items-center gap-2
-            rounded-xl px-2 py-1
-            text-xs font-semibold
-            backdrop-blur-md
-            bg-white/10
-            border border-blue-400/40
-            text-white
-            shadow-sm
-          "
-        >
-          <span
-            className={`h-2 w-2 rounded-full ${
-              project.type === "profissional" ? "bg-purple-700" : "bg-blue-400"
-            }`}
-          />
-          <p className={`${
-              project.type === "profissional" ? "text-purple-400" : "text-blue-400"
-            }`}>
-            {project.type === "profissional" ? "Profissional" : "Pessoal"}
-          </p>
-        </div>
-        
+      <div className="relative h-52 overflow-hidden bg-accent">
         {project.image ? (
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-cyan-500/10" />
-        )}
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/55 group-hover:bg-black/65 transition" />
-
-        {/* Conteúdo overlay (título + subtítulo + ícones) */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-          <h3 className="text-2xl font-extrabold text-white">
-            {project.title}
-          </h3>
-
-          <p className="mt-2 text-sm text-zinc-200">
-            {project.subtitle}
-          </p>
-
-          {/* Ícones logo abaixo do subtítulo */}
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-xl">
-            {project.stack.map((tech) => (
-              <span
-                key={tech}
-                className="opacity-90 hover:opacity-100 transition"
-                title={tech}
-              >
-                {techIcons[tech] ?? (
-                  <span className="text-zinc-200 text-xs">{tech}</span>
-                )}
-              </span>
-            ))}
+          <div className="flex h-full w-full items-center justify-center px-6">
+            <span className="text-center font-display text-3xl uppercase leading-none text-white">
+              {project.title}
+            </span>
           </div>
+        )}
+      </div>
+
+      <div className="flex flex-1 flex-col p-6">
+        <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+          {tipo}
+        </span>
+
+        <h3 className="mt-3 font-display text-2xl uppercase leading-none text-ink">
+          {project.title}
+        </h3>
+
+        <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.13em] text-muted">
+          {project.subtitle}
+        </p>
+
+        <div className="mt-5 flex flex-wrap items-center gap-3 text-lg text-muted">
+          {project.stack.map((tech) => (
+            <span key={tech} title={tech}>
+              {techIcons[tech] ?? (
+                <span className="font-mono text-[10px] uppercase">{tech}</span>
+              )}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-auto flex items-center justify-between gap-4 pt-8">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpen(project);
+            }}
+            className="cursor-pointer font-mono text-[10px] uppercase tracking-[0.14em] text-accent"
+          >
+            Ver mais{" "}
+            <span className="inline-block transition-transform group-hover:translate-x-1">
+              →
+            </span>
+          </button>
+
+          {githubEnabled && githubUrl ? (
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="text-muted transition-colors hover:text-accent"
+              aria-label={`Repositório de ${project.title} no GitHub`}
+            >
+              <Github size={16} />
+            </a>
+          ) : null}
         </div>
       </div>
-
-      {/* CONTEÚDO */}
-      <div className="p-3 flex flex-row justify-between gap-4">
-
-      <button
-        type="button"
-        onClick={() => onOpen(project)}
-        className="
-          group relative overflow-hidden
-          inline-flex items-center gap-2
-          px-4 py-1
-          rounded-xl
-          text-sm font-medium
-          text-blue-400
-          bg-blue-400/10
-          border border-blue-400/20
-          hover:bg-blue-400/20
-          hover:border-blue-400/40
-          transition-all duration-300
-        "
-      >
-      <span
-        className="
-          pointer-events-none absolute inset-0
-          before:absolute before:inset-y-0 before:left-0
-          before:w-20
-          before:bg-gradient-to-r before:from-transparent before:via-blue-200/40 before:to-transparent
-          before:-translate-x-[150%]
-          before:skew-x-16
-          before:transition-transform before:duration-800
-          group-hover:before:translate-x-[320%]
-        "
-      />
-
-      <span className="relative">Ver mais</span>
-        <span className="transition-transform group-hover:translate-x-1">→</span>
-      </button>
-
-        {githubEnabled && githubUrl ? (
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            onClick={(e) => e.stopPropagation()} 
-            className="
-              inline-flex items-center gap-2
-              px-3 py-1
-              rounded-xl
-               border-black/10 dark:border-white/10
-              text-zinc-700 dark:text-zinc-200
-              hover:text-blue-400 hover:border-blue-400/40
-              hover:bg-black/5 dark:hover:border dark:hover:border-blue-400/20
-              transition
-              text-sm
-            "
-            aria-label="Repositório no GitHub"
-          >
-            <Github size={16} className="text-blue-400" />
-          </a>
-        ) : null}
-      </div>
-    </div>
+    </article>
   );
 }

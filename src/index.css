@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* Removido na Tarefa 16, quando o ultimo dark: sair das paginas. */
-@custom-variant dark (&:where(.dark, .dark *));
-
 /* A cor e decidida pela secao, nao pelo componente. Cada Section aplica
    data-tone e tudo que esta dentro dela se resolve sozinho. */
 [data-tone="light"] {

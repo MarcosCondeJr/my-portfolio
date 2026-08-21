@@ -5,52 +5,30 @@ export default function ContactCard({
   href,
   action,
 }) {
+  const externo = href?.startsWith("http");
+
   return (
     <a
       href={href}
-      target={href?.startsWith("http") ? "_blank" : undefined}
-      rel={href?.startsWith("http") ? "noreferrer" : undefined}
-      className="
-        group block
-        rounded-2xl border border-black/10 dark:border-white/10
-        bg-white dark:bg-zinc-950
-        p-6
-        transition-all
-        hover:-translate-y-1
-        hover:shadow-lg
-        hover:border-blue-400/50
-      "
+      target={externo ? "_blank" : undefined}
+      rel={externo ? "noreferrer" : undefined}
+      className="group block h-full border border-line p-7 transition-colors hover:border-accent"
     >
-      <div className="flex items-center gap-4">
-        {/* Ícone */}
-        <div
-          className="
-            p-3 rounded-xl
-            bg-blue-400/10 text-blue-400
-            transition
-            group-hover:bg-blue-400 group-hover:text-white
-          "
-        >
-          <Icon size={20} />
-        </div>
+      <span className="text-accent">
+        <Icon size={20} />
+      </span>
 
-        {/* Conteúdo */}
-        <div className="flex-1 flex flex-col items-center text-center">
-          <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-            {title}
-          </h3>
+      <h3 className="mt-5 font-display text-xl uppercase leading-none text-ink">
+        {title}
+      </h3>
 
-          <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-            {description}
-          </p>
+      <p className="mt-3 text-sm text-muted">{description}</p>
 
-          {action && (
-            <span className="mt-3 inline-block text-xs font-medium text-blue-400">
-              {action}
-            </span>
-          )}
-        </div>
-      </div>
+      {action && (
+        <span className="mt-5 inline-block font-mono text-[10px] uppercase tracking-[0.14em] text-accent">
+          {action} →
+        </span>
+      )}
     </a>
   );
 }
