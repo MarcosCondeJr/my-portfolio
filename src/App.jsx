@@ -1,29 +1,26 @@
-import './App.css'
 import Navbar from './components/layout/Navbar'
 import Home from './pages/Home'
 import About from './pages/About'
-import Skills from './pages/Skills'
-import Projects from './pages/Projects'
-import Footer from './components/layout/Footer'
-import Contact from './pages/Contact'
-import ParallaxBackground from './components/background/ParallaxBackground'
 import Experience from './pages/Experience'
+import Projects from './pages/Projects'
+import Skills from './pages/Skills'
+import Contact from './pages/Contact'
+import Footer from './components/layout/Footer'
 
 function App() {
   return (
-    <div>
-      <ParallaxBackground />
-      <main>
+    <>
       <Navbar />
-        <Home/>
-        <About/>
-        <Skills/>
-        <Projects/>
-        <Experience/>
-        <Contact/>
-        <Footer/>
+      <main>
+        <Home />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
       </main>
-    </div>
+      <Footer />
+    </>
   )
 }
 
