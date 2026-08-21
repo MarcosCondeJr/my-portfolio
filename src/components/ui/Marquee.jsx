@@ -1,5 +1,4 @@
 import { useLayoutEffect, useRef } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { shouldAnimate } from "../../motion/motionTokens";
 
 export default function Marquee({ items, speed = 0.5 }) {
@@ -13,13 +12,28 @@ export default function Marquee({ items, speed = 0.5 }) {
     let deslocamento = 0;
     let metade = 0;
     let raf = 0;
+    let velocidade = 0;
+    let ultimoY = window.scrollY;
+
+    // A velocidade do scroll vem de um listener proprio, nao do
+    // ScrollTrigger: getVelocity e metodo de instancia, nao estatico
+    // (ScrollTrigger.js:1616), e chamar ScrollTrigger.getVelocity()
+    // lancava TypeError no primeiro quadro — antes do requestAnimationFrame
+    // do final — matando o laco e deixando a faixa parada.
+    const aoRolar = () => {
+      const y = window.scrollY;
+      velocidade = y - ultimoY;
+      ultimoY = y;
+    };
+    window.addEventListener("scroll", aoRolar, { passive: true });
 
     const passo = () => {
       if (!metade) metade = trilha.scrollWidth / 2 || 1;
 
-      // Velocidade do scroll da pagina, limitada para nao dar solavanco.
-      const v = ScrollTrigger.getVelocity() / 900;
-      const impulso = Math.max(-6, Math.min(6, v));
+      // Limitado para nao dar solavanco, e decaindo a cada quadro para a
+      // faixa voltar a velocidade base quando o scroll para.
+      const impulso = Math.max(-6, Math.min(6, velocidade * 0.12));
+      velocidade *= 0.9;
 
       deslocamento -= speed + impulso;
       if (deslocamento <= -metade) deslocamento += metade;
@@ -30,7 +44,11 @@ export default function Marquee({ items, speed = 0.5 }) {
     };
 
     raf = requestAnimationFrame(passo);
-    return () => cancelAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", aoRolar);
+    };
   }, [speed]);
 
   return (
