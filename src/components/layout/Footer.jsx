@@ -10,7 +10,7 @@ export default function Footer() {
         <p className="max-w-[42ch] font-display text-2xl uppercase leading-[1.05] md:text-3xl">
           Código durante a semana.
           <br />
-          Contrabaixo no fim dela.
+          Música no fim dela.
         </p>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

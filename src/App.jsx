@@ -12,7 +12,7 @@ import Cursor from './components/ui/Cursor'
 
 const FAIXA = [
   "Desenvolvedor Full Stack",
-  "Contrabaixista",
+  "Músico",
   "Salvador / BA",
 ]
 
@@ -29,8 +29,9 @@ function App() {
         <Experience />
         <Projects />
         {/*
-          Toque 3 de 4. Descomentar quando public/marcos-contrabaixo.jpeg
-          existir — uma faixa sem imagem e pior que faixa nenhuma.
+          Toque 3 de 4. A foto ja existe, mas a mesma imagem agora aparece
+          na secao Sobre — descomentar so se a faixa larga nao virar
+          repeticao.
           <BassBand />
         */}
         <Skills />

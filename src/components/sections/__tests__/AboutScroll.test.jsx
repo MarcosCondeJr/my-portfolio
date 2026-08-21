@@ -4,7 +4,7 @@ import AboutScroll from "../AboutScroll";
 
 const PARADAS = [
   { id: "prof", rotulo: "O profissional", titulo: "Full Stack", texto: "Texto um." },
-  { id: "pess", rotulo: "O pessoal", titulo: "Contrabaixista", texto: "Texto dois." },
+  { id: "pess", rotulo: "O pessoal", titulo: "Músico", texto: "Texto dois." },
 ];
 
 function simularAmbiente({ movimentoReduzido = false, telaLarga = true } = {}) {
@@ -48,13 +48,13 @@ describe("AboutScroll", () => {
     simularAmbiente();
     const travado = render(<AboutScroll paradas={PARADAS} />);
     expect(travado.getByText("Full Stack")).toBeTruthy();
-    expect(travado.getByText("Contrabaixista")).toBeTruthy();
+    expect(travado.getByText("Músico")).toBeTruthy();
     cleanup();
 
     simularAmbiente({ telaLarga: false });
     const empilhado = render(<AboutScroll paradas={PARADAS} />);
     expect(empilhado.getByText("Full Stack")).toBeTruthy();
-    expect(empilhado.getByText("Contrabaixista")).toBeTruthy();
+    expect(empilhado.getByText("Músico")).toBeTruthy();
   });
 
   it("sobrevive ao ciclo de montagem do StrictMode", () => {

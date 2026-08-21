@@ -6,8 +6,8 @@ import { shouldAnimate } from "../../motion/motionTokens";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function BassBand({
-  photo = "/marcos-contrabaixo.jpeg",
-  alt = "Marcos Conde tocando contrabaixo",
+  photo = "/marcos-pessoal-contrabaixo.jpeg",
+  alt = "Marcos Conde tocando ao ar livre",
 }) {
   const wrapRef = useRef(null);
   const imgRef = useRef(null);
