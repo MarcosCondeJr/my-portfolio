@@ -1,81 +1,55 @@
+import LayeredHero from "../components/hero/LayeredHero";
+import Reveal from "../components/motion/Reveal";
 import Magnetic from "../components/ui/Magnetic";
 import { scrollToId } from "../utils/scrollToId";
 
 export default function Home() {
-
   return (
-    <section id="home" className="min-h-screen text-white flex items-center">
-      <div className="max-w-6xl mx-auto px-6">
+    <section
+      id="home"
+      data-tone="light"
+      className="bg-surface text-ink min-h-screen px-6 pt-32 pb-20 flex items-center"
+    >
+      <div className="mx-auto w-full max-w-6xl">
+        <span className="sr-only">Marcos Conde — Desenvolvedor Full Stack</span>
 
-        <span className="text-lg px-0 text-zinc-600 dark:text-zinc-300">
-          Olá, eu sou
-        </span>
-
-        <h1
-          className="
-            text-[4rem]
-            md:text-[3rem]
-            lg:text-[6rem]
-            font-bold
-            leading-none
-            tracking-tight
-            text-zinc-900 dark:text-white
-          "
+        <Reveal
+          as="p"
+          className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted"
         >
-          <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            Marcos Conde
-          </span>
-        </h1>
+          Olá, eu sou
+        </Reveal>
 
-        <h2 className="mt-3 mdtext-xl md:text-2xl font-medium text-zinc-600 dark:text-zinc-300">
-          &lt;Desenvolvedor <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"><i>FullStack</i> </span>/&gt;
-        </h2>
+        <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+          <LayeredHero
+            photo="/img-marcos-03.jpeg"
+            alt="Marcos Conde"
+            cutout={false}
+          />
 
-        <div className="mt-10 flex justify-center flex-col md:flex-row gap-4">
-  
-        {/* Botão principal */}
-        <Magnetic>
-          <button
-            onClick={() => scrollToId("projects")}
-            className="
-              px-6 py-3
-              text-sm font-medium
-              rounded-full
-              bg-blue-400/10
-              text-blue-400
-              border border-blue-400/20
-              backdrop-blur-sm
-              transition
-              cursor-pointer
-              hover:bg-transparent hover:text-blue-400
-            "
-          >
-            Ver Projetos
-          </button>
-        </Magnetic>
+          <div className="max-w-[30ch] lg:pb-6">
+            <Reveal
+              as="p"
+              delay={0.15}
+              className="font-mono text-[11px] uppercase leading-[1.9] tracking-[0.14em] text-muted"
+            >
+              Desenvolvedor full stack. Atuo em sistemas web de grande escala,
+              com foco em arquitetura e sustentabilidade do código.
+            </Reveal>
 
-        {/* Botão secundário */}
-        <Magnetic strength={22}>
-          <button
-            onClick={() => scrollToId("contact")}
-            className="
-              px-6 py-3
-              text-sm font-medium
-              rounded-full
-              border border-zinc-300 dark:border-zinc-700
-              text-zinc-700 dark:text-zinc-300
-              backdrop-blur-md
-              cursor-pointer
-              transition
-              hover:border-blue-400/20 hover:text-blue-400
-            "
-          >
-            Entrar em contato
-          </button>
-        </Magnetic>
-
-      </div>
-
+            <Reveal delay={0.3} className="mt-8">
+              <Magnetic>
+                <button
+                  type="button"
+                  onClick={() => scrollToId("projects")}
+                  className="bg-accent px-7 py-4 font-mono text-[11px] uppercase tracking-[0.14em] text-white cursor-pointer"
+                >
+                  Ver Projetos
+                </button>
+              </Magnetic>
+            </Reveal>
+          </div>
+        </div>
       </div>
     </section>
   );
