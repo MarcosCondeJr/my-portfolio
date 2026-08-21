@@ -53,11 +53,19 @@ body {
    secao. Azul tem contraste tanto sobre o creme quanto sobre o escuro; o
    unico lugar onde ele some e em cima da faixa azul, que tem 40px de
    altura. */
-html {
-  /* Firefox: so aceita estas duas propriedades. Nada de cantos, setas ou
-     hover — la a barra degrada para "fina, azul sobre transparente". */
-  scrollbar-width: thin;
-  scrollbar-color: #1B26FF transparent;
+/* CUIDADO AO MEXER AQUI: scrollbar-width e scrollbar-color NAO podem sair
+   deste @supports.
+   O Chrome entende as duas familias de propriedade, e quando qualquer uma
+   das padrao esta presente ele DESLIGA os pseudo-elementos
+   ::-webkit-scrollbar por completo e renderiza pelo caminho padrao — onde
+   scrollbar-button nao existe e as setas voltam a aparecer.
+   O @supports abaixo so casa em navegador que NAO conhece
+   ::-webkit-scrollbar, ou seja, Firefox. */
+@supports (scrollbar-width: thin) and (not selector(::-webkit-scrollbar)) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #1B26FF transparent;
+  }
 }
 
 ::-webkit-scrollbar {
