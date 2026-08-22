@@ -56,6 +56,20 @@ describe("Home", () => {
     expect(retrato.getAttribute("height")).toBe(String(altura));
   });
 
+  // O retrato fica por cima do card e o navegador decide clique pela caixa do
+  // elemento, nao pelo alfa do PNG — entao sem pointer-events-none o retangulo
+  // transparente engole o clique do Ver Projetos. Foi bug de verdade, e o
+  // teste abaixo passou verde com o botao morto no navegador: jsdom nao faz
+  // teste de acerto, entrega o clique direto no alvo ignorando sobreposicao.
+  //
+  // Checar a classe e acoplar ao Tailwind, o que normalmente eu evitaria. Aqui
+  // vale: e o unico guarda possivel para uma regressao que ja chegou na tela.
+  it("o retrato nao intercepta clique, senao ele cobre o botao", () => {
+    const { container } = render(<Home />);
+    const camada = retratoDe(container).parentElement;
+    expect(camada.className).toContain("pointer-events-none");
+  });
+
   it("o botao rola ate os projetos", () => {
     const alvo = document.createElement("div");
     alvo.id = "projects";

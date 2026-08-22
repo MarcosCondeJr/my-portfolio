@@ -8,12 +8,16 @@
 // tratamento nenhum. Espelhado, os ombros caem em 20,6% e 83,7%, e na altura
 // do rosto o corpo comeca em 33,3%.
 //
-// Com 64,3% da largura do conteudo comecando em 32,2%, o MARCOS termina antes
-// do rosto e o ombro para antes do texto do card, encostando so na quina.
-// ATENCAO: essas duas condicoes brigam entre si e a folga e de ~20px de cada
-// lado. Aproximar o retrato do nome joga o ombro por cima do card; afastar
-// para proteger o card faz as letras caminharem na direcao do rosto. Se mexer
-// numa, confira a outra no navegador antes de dar por resolvido.
+// Com 62% da largura do conteudo comecando em 32,2%, o MARCOS termina uns
+// 23px antes do rosto e o ombro para uns 10px antes da borda do card.
+// ATENCAO: essas duas condicoes brigam entre si. Aproximar o retrato do nome
+// joga o ombro por cima do card; afastar para proteger o card faz as letras
+// caminharem na direcao do rosto. Se mexer numa, confira a outra no navegador.
+//
+// Encolher tambem nao e de graca: como a base fica ancorada na dobra, largura
+// menor significa altura menor e a cabeca desce junto. E, por ser o corpo uma
+// fracao da largura, encolher aproxima o rosto do nome em vez de afastar —
+// o oposto da intuicao.
 //
 // A folga tambem depende do recorte: public/ guarda marcos-hero1.png (717x678)
 // e marcos-hero2.png (717x586), o mesmo retrato com mais e com menos peito. O
@@ -26,10 +30,15 @@
 // automatico — a verificacao dos dois e visual.
 export default function HeroPortrait() {
   return (
+    // pointer-events-none nao e detalhe: o navegador decide o clique pela
+    // CAIXA do elemento, nao pelo alfa do PNG. Sem isto, todo o retangulo
+    // transparente em volta do retrato fica por cima do card (z-20 sobre
+    // z-10) e engole o clique do Ver Projetos. O bug so aparecia no desktop,
+    // porque no mobile o retrato e hidden e nao existe caixa nenhuma.
     <div
       className="
         hidden
-        lg:absolute lg:-bottom-20 lg:left-[32.2%] lg:z-20 lg:block lg:w-[64.3%]
+        lg:pointer-events-none lg:absolute lg:-bottom-20 lg:left-[32.2%] lg:z-20 lg:block lg:w-[61%]
         lg:drop-shadow-[20px_11px_26px_rgba(22,21,15,0.18)]
       "
     >
