@@ -8,17 +8,12 @@ import {
   useScrollProgress,
 } from "../../motion/useScrollProgress";
 
-// Quem gruda e o CSS sticky, nao o JavaScript: o scroll do visitante nunca
-// e interceptado nem cancelado. Isso importa porque scroll sequestrado por
-// JS briga com a rolagem por inercia e e o que faz esse tipo de secao
-// parecer travada em vez de intencional.
 function podePinar() {
   if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
     return false;
   }
   if (!shouldAnimate()) return false;
-  // Trilho alto em tela pequena com rolagem por inercia e onde isso quebra
-  // feio — a pessoa acha que o site travou e fecha.
+
   return window.matchMedia("(min-width: 1024px)").matches;
 }
 
@@ -66,8 +61,6 @@ export default function AboutScroll({ paradas }) {
   const [pinado] = useState(podePinar);
   const progresso = useScrollProgress(trilhoRef, pinado);
 
-  // Caminho empilhado: tela estreita ou movimento reduzido. Nao e o efeito
-  // enfraquecido — e outro caminho de codigo, escolhido na montagem.
   if (!pinado) {
     return (
       <Section tone="light" id="about" number="02" label="Sobre" title="Quem eu sou">
@@ -110,8 +103,6 @@ export default function AboutScroll({ paradas }) {
                   transform: `scale(${escalas[i]})`,
                   transformOrigin: "center center",
                   willChange: "transform, opacity",
-                  // A parada apagada nao pode roubar clique nem hover da
-                  // que esta visivel.
                   pointerEvents: opacidades[i] > 0.5 ? "auto" : "none",
                 }}
               >
@@ -122,8 +113,6 @@ export default function AboutScroll({ paradas }) {
             ))}
           </div>
 
-          {/* Sem referencia de progresso, secao travada vira desorientacao:
-              a pessoa nao sabe se acabou nem quanto falta. */}
           <div className="mt-12 flex items-center gap-4">
             <div className="h-px flex-1 bg-line">
               <div

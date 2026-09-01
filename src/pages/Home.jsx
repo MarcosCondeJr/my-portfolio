@@ -11,12 +11,6 @@ export default function Home() {
       data-tone="light"
       className="relative flex min-h-screen items-center overflow-hidden bg-surface px-6 pt-32 pb-20 text-ink"
     >
-      {/*
-        No desktop este bloco precisa ocupar a altura util inteira da secao
-        (100vh menos os 13rem de pt-32 + pb-20) porque o retrato se ancora na
-        base DELE. Se ele tivesse so a altura do conteudo, o -bottom-20 do
-        retrato pousaria no meio da tela em vez de na dobra.
-      */}
       <div className="relative mx-auto w-full max-w-6xl lg:flex lg:min-h-[calc(100vh-13rem)] lg:flex-col lg:justify-center">
         <span className="sr-only">Marcos Conde — Desenvolvedor Full Stack</span>
 
@@ -27,11 +21,6 @@ export default function Home() {
           Olá, eu sou
         </Reveal>
 
-        {/*
-          items-start alinha o card pelo TOPO do nome. Alinhado pela base ele
-          desceria ate a faixa dos ombros do retrato — que passa por cima dele
-          — e o paragrafo ficaria coberto.
-        */}
         <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_29.5%] lg:items-start">
           <div className="relative z-30">
             <HeroName />

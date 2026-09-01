@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
-/* A cor e decidida pela secao, nao pelo componente. Cada Section aplica
-   data-tone e tudo que esta dentro dela se resolve sozinho. */
+
 [data-tone="light"] {
   --surface: #F5F1E8;
   --ink: #16150F;
@@ -45,22 +44,6 @@ body {
   color: #16150F;
 }
 
-/* Barra de rolagem: so o indicador, em azul, sobre trilho transparente.
-   Sem setas.
-
-   A cor e o #1B26FF fixo, nao var(--accent): a barra e uma so para a
-   pagina inteira, entao ela nao pode depender do data-tone de nenhuma
-   secao. Azul tem contraste tanto sobre o creme quanto sobre o escuro; o
-   unico lugar onde ele some e em cima da faixa azul, que tem 40px de
-   altura. */
-/* CUIDADO AO MEXER AQUI: scrollbar-width e scrollbar-color NAO podem sair
-   deste @supports.
-   O Chrome entende as duas familias de propriedade, e quando qualquer uma
-   das padrao esta presente ele DESLIGA os pseudo-elementos
-   ::-webkit-scrollbar por completo e renderiza pelo caminho padrao — onde
-   scrollbar-button nao existe e as setas voltam a aparecer.
-   O @supports abaixo so casa em navegador que NAO conhece
-   ::-webkit-scrollbar, ou seja, Firefox. */
 @supports (scrollbar-width: thin) and (not selector(::-webkit-scrollbar)) {
   html {
     scrollbar-width: thin;
@@ -94,16 +77,11 @@ body {
   display: none;
 }
 
-/* Cursor customizado. A classe cursor-custom e adicionada ao <html> pelo
-   componente Cursor DEPOIS que ele monta — nunca daqui. Se o componente
-   nao rodar, o cursor do sistema continua no lugar. */
 html.cursor-custom,
 html.cursor-custom * {
   cursor: none;
 }
 
-/* Excecao: campo de texto mantem o cursor de texto. Nao ha nenhum no site
-   hoje, mas se aparecer um formulario a regra ja esta certa. */
 html.cursor-custom input,
 html.cursor-custom textarea {
   cursor: auto;

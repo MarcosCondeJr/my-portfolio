@@ -8,10 +8,6 @@ export default function Marquee({ items, speed = 0.5 }) {
   const [repeticoes, setRepeticoes] = useState(2);
   const texto = items.join("  ·  ") + "  ·  ";
 
-  // Mede uma copia e decide quantas cabem. Roda depois das fontes
-  // carregarem e em toda mudanca de tamanho da janela: medir uma vez so, no
-  // primeiro quadro, dava 415px onde o real era 440 — a fonte ainda nao
-  // tinha chegado.
   useLayoutEffect(() => {
     const trilha = trilhaRef.current;
     if (!trilha) return;
@@ -45,10 +41,6 @@ export default function Marquee({ items, speed = 0.5 }) {
     let velocidade = 0;
     let ultimoY = window.scrollY;
 
-    // A velocidade do scroll vem de um listener proprio, nao do
-    // ScrollTrigger: getVelocity e metodo de instancia, nao estatico
-    // (ScrollTrigger.js:1616), e chamar ScrollTrigger.getVelocity()
-    // lancava TypeError no primeiro quadro, matando o laco.
     const aoRolar = () => {
       const y = window.scrollY;
       velocidade = y - ultimoY;

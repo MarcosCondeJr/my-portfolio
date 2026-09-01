@@ -8,8 +8,7 @@ import { shouldAnimate } from "../motion/motionTokens";
 export default function Experience() {
   const wrapRef = useRef(null);
   const itemRefs = useRef([]);
-  // Com movimento reduzido, o estado ja nasce no valor final: a linha
-  // inteira e todos os pontos acesos. Mesmo resultado visual, sem animar.
+
   const [progress, setProgress] = useState(() => (shouldAnimate() ? 0 : 1));
   const [activeItems, setActiveItems] = useState(() =>
     shouldAnimate() ? [] : experiences.map((_, i) => i)

@@ -1,19 +1,15 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { shouldAnimate } from "../../motion/motionTokens";
 
-// Os elementos nao se declaram interativos: o cursor descobre sozinho por
-// delegacao de evento. Assim tudo que ja existe e tudo que for criado
-// depois funciona sem precisar lembrar de marcar nada.
-// Campos de texto ficam de fora de proposito — ver a excecao no index.css.
 const INTERATIVOS = "a, button, [role='button'], summary";
 
 function podeUsarCursor() {
   if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
     return false;
   }
-  // Um elemento perseguindo o mouse e movimento.
+
   if (!shouldAnimate()) return false;
-  // Celular e tablet nao tem cursor: nada e carregado.
+
   return window.matchMedia("(pointer: fine)").matches;
 }
 
@@ -27,8 +23,7 @@ export default function Cursor() {
     if (!el) return;
 
     const raiz = document.documentElement;
-    // O cursor nativo so some depois que o customizado esta de pe. Se este
-    // componente falhar ou for desligado, o cursor do sistema continua la.
+
     raiz.classList.add("cursor-custom");
 
     let alvoX = window.innerWidth / 2;
@@ -42,8 +37,7 @@ export default function Cursor() {
       alvoX = e.clientX;
       alvoY = e.clientY;
       if (!visivel) {
-        // Primeiro movimento: aparece ja na posicao certa, sem deslizar
-        // do canto da tela.
+
         x = alvoX;
         y = alvoY;
         visivel = true;

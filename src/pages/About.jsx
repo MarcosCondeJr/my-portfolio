@@ -1,9 +1,5 @@
 import AboutScroll from "../components/sections/AboutScroll";
 
-// As duas paradas do "quem eu sou". O contraste entre as fotos e metade do
-// efeito: a do trabalho e noturna, fria e azulada; a da musica e de dia,
-// quente e colorida. Ao rolar, o painel vai literalmente do escuro para o
-// claro.
 const PARADAS = [
   {
     id: "profissional",
