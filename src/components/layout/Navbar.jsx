@@ -23,6 +23,11 @@ export default function Navbar() {
           className="cursor-pointer font-display text-xl uppercase tracking-[0.02em] text-ink"
         >
           MC
+          {/* <img
+          src="logo-mc-original.png"
+          alt="logo MC"
+          className="w-full max-w-xs object-cover md:w-15"
+        /> */}
         </button>
 
         <div className="hidden items-center gap-7 md:flex">
