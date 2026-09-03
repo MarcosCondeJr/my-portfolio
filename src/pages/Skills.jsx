@@ -1,82 +1,42 @@
-import { FaJava } from "react-icons/fa";
-import { 
-    SiGit, 
-    SiGithub, 
-    SiLaravel, 
-    SiMongodb,
-    SiNestjs, 
-    SiNodedotjs, 
-    SiPhp, 
-    SiPostgresql, 
-    SiReact, 
-    SiSpring, 
-    SiTailwindcss 
-} from "react-icons/si";
-
+import Section from "../components/layout/Section";
+import Reveal from "../components/motion/Reveal";
+import { skillGroups } from "../data/skills";
+import { techIcons } from "../data/techIcons";
 
 export default function Skills() {
-  const skills = [
-    { name: "Java", icon: FaJava},
-    { name: "Spring", icon: SiSpring },
-    { name: "PHP", icon: SiPhp },
-    { name: "Laravel", icon: SiLaravel },
-    { name: "Node.js", icon: SiNodedotjs },
-    { name: "Nest.js", icon: SiNestjs },
-    { name: "React", icon: SiReact },
-    { name: "PostgreSQL", icon: SiPostgresql },
-    { name: "MongoDB", icon: SiMongodb },
-    { name: "Tailwind", icon: SiTailwindcss },
-    { name: "Git", icon: SiGit },
-    { name: "GitHub", icon: SiGithub },
-  ];
-
   return (
-    <section id="skills" className="min-h-screen flex items-center">
-      <div className="max-w-6xl mx-auto px-6 py-24">
+    <Section
+      tone="light"
+      id="skills"
+      number="05"
+      label="Habilidades"
+      title="Com o que eu trabalho"
+    >
+      <div className="divide-y divide-line border-y border-line">
+        {skillGroups.map((grupo, i) => (
+          <Reveal key={grupo.category} delay={i * 0.08}>
+            <div className="grid gap-4 py-7 md:grid-cols-[180px_1fr] md:items-baseline">
+              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
+                {grupo.category}
+              </p>
 
-        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-          <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            Habilidades
-          </span>
-        </h2>
-
-        <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8">
-          {skills.map((skill, index) => {
-            const Icon = skill.icon;
-
-            return (
-              <div
-                key={index}
-                className="
-                  group
-                  flex flex-col items-center justify-center
-                  p-6
-                  rounded-2xl
-                  border border-zinc-200 dark:border-zinc-800
-                  bg-white dark:bg-zinc-900
-                  transition-all
-                  hover:-translate-y-2
-                  hover:shadow-xl
-                "
-              >
-                <Icon
-                  size={40}
-                  className="
-                    text-zinc-700 dark:text-zinc-300
-                    transition
-                    group-hover:text-blue-400
-                  "
-                />
-
-                <span className="mt-4 text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                  {skill.name}
-                </span>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                {grupo.items.map((nome) => (
+                  <span
+                    key={nome}
+                    className="flex items-center gap-2 text-xl md:text-2xl"
+                  >
+                    <span className="text-muted" aria-hidden="true">
+                      {techIcons[nome]}
+                    </span>
+                    {nome}
+                  </span>
+                ))}
               </div>
-            );
-          })}
-        </div>
-
+            </div>
+          </Reveal>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }
