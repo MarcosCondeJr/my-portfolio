@@ -3,8 +3,12 @@ export const projects = [
     id: "pethouse",
     title: "Pethouse",
     subtitle: "Gestão de pets para tutores",
-    description:
-  "A PetHouse é uma aplicação desenvolvida para facilitar a gestão da saúde e bem-estar de pets, oferecendo aos tutores uma forma organizada e prática de acompanhar informações essenciais. O sistema permite registrar vacinas, medicamentos, consultas veterinárias e histórico de cuidados, além de disponibilizar lembretes inteligentes que ajudam a manter a rotina do pet sempre atualizada. A solução foi construída em equipe, com foco em usabilidade, organização de dados e experiência intuitiva.",
+    images: ['capa-projeto-pethouse.png'],
+    problema:
+      "Tutor de pet acompanha vacina, remédio e consulta em papel, caderno e memória. Não existe um lugar só, e a dose atrasada costuma aparecer quando já atrasou.",
+    solucao:
+      "Aplicativo que reúne vacinas, medicamentos, consultas e histórico de cuidados num registro por pet, com lembretes que avisam antes da próxima dose.",
+    papel: "",
     type: "profissional",
     stack: ["React Native", "NestJs", "PostgreSQL", "Tailwind"],
     links: {
@@ -13,7 +17,6 @@ export const projects = [
       demo: "",
       demoEnabled: false,
     },
-    image: 'capa-projeto-pethouse.png',
     team: [
     {
       name: "Wesley Sales",
@@ -39,8 +42,12 @@ export const projects = [
     id: "condefinance",
     title: "CondeFinance",
     subtitle: "Sistema de gestão financeira",
-description:
-  "O CondeFinance é um sistema de gestão financeira pessoal desenvolvido para proporcionar controle total sobre receitas e despesas. A aplicação permite organizar contas, categorias e lançamentos financeiros, oferecendo uma visão clara da saúde financeira do usuário. O projeto foi construído com foco em organização, performance e boas práticas de arquitetura backend, além de uma interface moderna e responsiva.",
+    images: ['LOGIN-CONDE-FINANCE.png'],
+    problema:
+      "Controle financeiro pessoal espalhado entre planilha, extrato do banco e cabeça. No fim do mês fica difícil responder para onde o dinheiro foi.",
+    solucao:
+      "Sistema que organiza contas, categorias e lançamentos num lugar só, com visão clara de entrada e saída e uma interface responsiva.",
+    papel: "",
     type: "pessoal",
     stack: ["Java", "Spring", "PostgreSQL", "React", "Tailwind"],
     links: {
@@ -49,15 +56,18 @@ description:
       demo: "https://condefinance.marcoscondejr.com.br",
       demoEnabled: true,
     },
-    image: 'LOGIN-CONDE-FINANCE.png',
     team: []
   },
   {
     id: "signdoc",
     title: "SignDoc API",
     subtitle: "Assinatura digital de documentos",
-description:
-  "A SignDoc API é uma solução backend para assinatura digital de documentos, desenvolvida com foco em segurança, integridade e conformidade com o padrão PAdES. A aplicação permite validar certificados digitais (PFX/P12), realizar assinaturas criptográficas em PDFs e armazenar documentos de forma segura. O projeto foi estruturado com arquitetura escalável e integração com serviços de armazenamento em nuvem.",
+    images: [],
+    problema:
+      "Assinar documento com validade jurídica exige certificado digital, conformidade com o padrão PAdES e guarda segura do arquivo. Montar isso do zero em cada aplicação é caro e fácil de errar.",
+    solucao:
+      "API que valida certificados PFX/P12, assina PDFs criptograficamente no padrão PAdES e guarda os documentos em armazenamento em nuvem.",
+    papel: "",
     type: "profissional",
     stack: ["Java", "Spring", "PostgreSQL", "Amazon S3"],
     links: {
@@ -66,7 +76,6 @@ description:
       demo: "",
       demoEnabled: false,
     },
-    image: null,
     team: []
   },
 ];

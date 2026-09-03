@@ -1,7 +1,7 @@
 import { Github } from "lucide-react";
 import { techIcons } from "../../data/techIcons";
 
-export default function ProjectCard({ project, onOpen }) {
+export default function ProjectCard({ project, onOpen, botaoRef }) {
   const githubEnabled = project.links?.githubEnabled ?? !!project.links?.github;
   const githubUrl = project.links?.github;
   const tipo = project.type === "profissional" ? "Profissional" : "Pessoal";
@@ -12,9 +12,9 @@ export default function ProjectCard({ project, onOpen }) {
       className="group flex h-full cursor-pointer flex-col border border-line bg-surface transition-colors hover:border-accent"
     >
       <div className="relative h-52 overflow-hidden bg-accent">
-        {project.image ? (
+        {project.images?.[0] ? (
           <img
-            src={project.image}
+            src={project.images[0]}
             alt={project.title}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
@@ -52,6 +52,7 @@ export default function ProjectCard({ project, onOpen }) {
 
         <div className="mt-auto flex items-center justify-between gap-4 pt-8">
           <button
+            ref={botaoRef}
             type="button"
             onClick={(e) => {
               e.stopPropagation();
