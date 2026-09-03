@@ -26,5 +26,9 @@ dist-ssr
 # Superpowers brainstorm sessions
 .superpowers/
 
-# Refs de inspiracao (trabalho de terceiros, nao versionar)
+# Documentacao de trabalho: specs, planos e refs. Fica so na maquina.
+docs/
+
+# Refs de inspiracao sao trabalho de terceiros — nao versionar nem que
+# docs/ volte a ser rastreado um dia.
 docs/refs/
