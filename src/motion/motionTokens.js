@@ -2,6 +2,7 @@
 // inteiro e editar este arquivo.
 export const MOTION = Object.freeze({
   maskDuration: 0.85,
+  modalMask: 0.5,
   revealDuration: 0.6,
   stagger: 0.07,
   ease: "power3.out",

@@ -28,4 +28,11 @@ describe("MOTION", () => {
   it("e imutavel para que nenhum componente altere o ritmo global", () => {
     expect(Object.isFrozen(MOTION)).toBe(true);
   });
+
+  // A mascara do modal e mais rapida que a da pagina: modal que demora a
+  // abrir irrita. Sao duracoes diferentes de proposito.
+  it("tem uma duracao propria para a mascara do modal", () => {
+    expect(MOTION.modalMask).toBeGreaterThan(0);
+    expect(MOTION.modalMask).toBeLessThan(MOTION.maskDuration);
+  });
 });
