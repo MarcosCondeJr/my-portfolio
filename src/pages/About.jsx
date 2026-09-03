@@ -16,8 +16,8 @@ const PARADAS = [
     rotulo: "O pessoal",
     titulo: "Músico",
     texto:
-      "Toco desde os dez anos — e foi tocando em banda que eu entendi o que é ritmo e o que é escutar antes de entrar. Duas coisas que uso todo dia em código: saber a hora de segurar a base e a hora de aparecer.",
-    tags: ["Música", "Salvador, BA"],
+      "Comecei aos oito anos, na bateria. Passei pelo violão até chegar ao contrabaixo, que toco na igreja há sete anos. É o instrumento que menos aparece e o que segura tudo de pé — foi nele que me encontrei. Ouvir ou tocar, música é das coisas que eu mais gosto na vida.",
+    tags: ["Contrabaixo", "Cristão", "Salvador, BA"],
     foto: "/marcos-pessoal-contrabaixo.jpeg",
     alt: "Marcos Conde tocando ao ar livre",
   },
